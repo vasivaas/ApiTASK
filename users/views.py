@@ -33,13 +33,6 @@ def connect(sid, environ):
     print("connect ", sid)
 
 
-@sio.on('message')
-def print_message(sid, message):
-    print("Socket ID: ", sid)
-    print(message)
-    sio.emit('message', 'Status: OK')
-
-
 class CreateUserView(GenericAPIView):
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated,)
